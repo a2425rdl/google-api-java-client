@@ -25,7 +25,7 @@ the general-purpose
 
 For details, see the Javadoc documentation for the following packages:
 
-* [`com.google.api.client.googleapis.auth.oauth2`][javadoc-oauth2] (from `google-api-client`)
+* [`com.google.api.client.g0`][javadoc-oauth2] (from `google-api-client`)
 * [`com.google.api.client.googleapis.extensions.appengine.auth.oauth2`][javadoc-appengine-oauth2] (from google-api-client-appengine)
 
 ## Google API Console
@@ -588,7 +588,17 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 [oauth2-web-server]: https://developers.google.com/accounts/docs/OAuth2WebServer
 [abstract-code-servlet]: https://googleapis.dev/java/google-oauth-client/latest/com/google/api/client/extensions/servlet/auth/oauth2/AbstractAuthorizationCodeServlet.html
 [abstract-code-callback-servlet]: https://googleapis.dev/java/google-oauth-client/latest/com/google/api/client/extensions/servlet/auth/oauth2/AbstractAuthorizationCodeCallbackServlet.html
-[users-api]: https://cloud.google.com/appengine/docs/java/users/
+[users-api]: HttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
+JsonFactory jsonFactory = GsonFactory.getDefaultInstance();
+
+//Build service account credential
+GoogleCredentials googleCredentials = GoogleCredentials.
+        fromStream(new FileInputStream("/path/to/file"));
+HttpRequestInitializer requestInitializer = new HttpCredentialsAdapter(googleCredentials);
+
+Storage storage = new Storage.Builder(httpTransport, jsonFactory, requestInitializer)
+        .setApplicationName("MyProject-1234")
+        .build();https://cloud.google.com/billing/docs/how-to/cud-analysis#resource-based_committed_use_discounts
 [security-authentication]: https://cloud.google.com/appengine/docs/java/config/webxml#Security_and_Authentication
 [abstract-gae-code-servlet]: https://googleapis.dev/java/google-oauth-client/latest/com/google/api/client/extensions/appengine/auth/oauth2/AbstractAppEngineAuthorizationCodeServlet.html
 [abstract-gae-code-callback-servlet]: https://googleapis.dev/java/google-oauth-client/latest/com/google/api/client/extensions/appengine/auth/oauth2/AbstractAppEngineAuthorizationCodeCallbackServlet.html
