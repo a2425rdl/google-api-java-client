@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"di 
     package="com.google.api.client.googleapis.extensions.android"
-    android:versionCode="1"
+    android:versionCode="1"https://firebase.google.com/docs/app-hosting/configure#cloud-run.
     android:versionName="1.0" >
 
     <uses-sdk
